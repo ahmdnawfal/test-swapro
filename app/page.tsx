@@ -6,10 +6,12 @@ import SectionGallery from '@/components/home/section-gallery';
 import SectionMain from '@/components/home/section-main';
 import SectionVarious from '@/components/home/section-various';
 import SectionVillaStudio from '@/components/home/section-villa-studio';
+import MainNavbar from '@/components/main-navbar';
 
-export default function Home() {
+export default async function Home() {
   return (
-    <main>
+    <main className='overflow-x-hidden'>
+      <MainNavbar />
       <section>
         <SectionMain />
       </section>

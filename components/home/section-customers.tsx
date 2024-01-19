@@ -90,7 +90,17 @@ const SectionCustomers = () => {
       <div className='relative'>
         <div className='relative'>
           <h1 className='text-black text-xl leading-5 tracking-[-0.24px] text-start md:text-h1 md:leading-[44px] md:tracking-[-0.92px] font-bold'>
-            What Our <span className='text-green'>Customer</span>
+            What Our{' '}
+            <span className='text-green relative'>
+              Customer
+              <Image
+                alt='vector'
+                src={'/icons/Vector1.svg'}
+                width={190}
+                height={88}
+                className='absolute right-0'
+              />
+            </span>
           </h1>
           <h1 className='ttext-black text-xl leading-5 tracking-[-0.24px] text-start md:text-h1 md:leading-[44px] md:tracking-[-0.92px] font-bold'>
             Are Saying

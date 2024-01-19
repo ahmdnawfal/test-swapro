@@ -10,13 +10,14 @@ import FormPassword from '../form-password';
 import { Button } from '../ui/button';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import { signIn } from 'next-auth/react';
+import { toast } from 'react-toastify';
+import { useState } from 'react';
 
 const FormSignin = () => {
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isLoadingGoogle, setIsLoadingGoogle] = useState<boolean>(false);
   const router = useRouter();
-  const onSubmit = async (values: z.infer<typeof signInSchema>) => {
-    router.push('/');
-    console.log(values);
-  };
 
   const form = useForm<z.infer<typeof signInSchema>>({
     resolver: zodResolver(signInSchema),
@@ -25,6 +26,34 @@ const FormSignin = () => {
       password: '',
     },
   });
+
+  const onSubmit = async (values: z.infer<typeof signInSchema>) => {
+    setIsLoading(true);
+    const response = await signIn('credentials', {
+      email: values.email,
+      password: values.password,
+      redirect: false,
+    });
+
+    if (response?.ok) {
+      router.refresh();
+      setIsLoading(false);
+    } else {
+      setIsLoading(false);
+      toast.error(response?.error);
+    }
+  };
+
+  const signUpWithGoogle = async () => {
+    setIsLoadingGoogle(true);
+    try {
+      await signIn('google');
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsLoadingGoogle(false);
+    }
+  };
 
   return (
     <Form {...form}>
@@ -46,8 +75,13 @@ const FormSignin = () => {
             placeholder='Password'
           />
         </div>
-        <Button variant={'green'} type='submit'>
-          Sign In
+        <Button
+          disabled={isLoading}
+          variant={'green'}
+          type='submit'
+          className='disabled:bg-slate-300'
+        >
+          {isLoading ? 'Loading...' : 'Sign In'}
         </Button>
         <p className='text-center text-neutral-medium text-l'>
           Forgot Password?{' '}
@@ -61,12 +95,19 @@ const FormSignin = () => {
           <div className='h-[1px] w-full bg-[#DBE7F0]' />
         </div>
         <div>
-          <Button className='w-full gap-1' type='button' variant={'outline'}>
+          <Button
+            className='w-full gap-1 disabled:bg-slate-300'
+            type='button'
+            variant={'outline'}
+            onClick={signUpWithGoogle}
+            disabled={isLoadingGoogle}
+          >
             <Image
               alt='google'
               src={'/icons/Google.svg'}
               width={20}
               height={20}
+              className={`${isLoadingGoogle ? 'animate-spin' : ''}`}
             />
             Sign Up with Google
           </Button>

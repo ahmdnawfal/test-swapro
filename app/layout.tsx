@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Poppins } from 'next/font/google';
 import './globals.css';
 import NextTopLoader from 'nextjs-toploader';
+import Providers from '@/components/providers';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -22,7 +23,7 @@ export default function RootLayout({
     <html lang='en'>
       <body className={poppins.className}>
         <NextTopLoader color='#106A64' showSpinner={false} />
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

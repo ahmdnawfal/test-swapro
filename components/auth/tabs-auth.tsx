@@ -15,7 +15,7 @@ const TabsAuth = () => {
       </h1>
       <div>
         <Tabs
-          defaultValue='signin'
+          value={isActive}
           className='w-full sm:w-[400px]'
           onValueChange={(value: string) => setIsActive(value)}
         >
@@ -49,7 +49,7 @@ const TabsAuth = () => {
             value='signup'
             className='mt-5 focus-visible:ring-transparent'
           >
-            <FormSignUp />
+            <FormSignUp setIsActive={setIsActive} />
           </TabsContent>
         </Tabs>
       </div>
