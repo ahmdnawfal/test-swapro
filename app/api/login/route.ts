@@ -31,6 +31,6 @@ export async function POST(req: NextRequest) {
       { status: 200 }
     );
   } catch (error) {
-    return error;
+    return NextResponse.json({ message: error });
   }
 }
