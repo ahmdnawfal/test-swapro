@@ -14,12 +14,15 @@ import { Dispatch, SetStateAction, useState } from 'react';
 import { toast } from 'react-toastify';
 import FormNumber from '../form-number';
 import { signIn } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 
 const FormSignUp = ({
   setIsActive,
 }: {
   setIsActive: Dispatch<SetStateAction<string>>;
 }) => {
+  const router = useRouter();
+
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isLoadingGoogle, setIsLoadingGoogle] = useState<boolean>(false);
 
@@ -50,7 +53,8 @@ const FormSignUp = ({
   const signUpWithGoogle = async () => {
     setIsLoadingGoogle(true);
     try {
-      await signIn('google');
+      signIn('google');
+      router.refresh();
     } catch (error) {
       console.log(error);
     } finally {

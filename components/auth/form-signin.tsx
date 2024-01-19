@@ -15,9 +15,9 @@ import { toast } from 'react-toastify';
 import { useState } from 'react';
 
 const FormSignin = () => {
+  const router = useRouter();
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isLoadingGoogle, setIsLoadingGoogle] = useState<boolean>(false);
-  const router = useRouter();
 
   const form = useForm<z.infer<typeof signInSchema>>({
     resolver: zodResolver(signInSchema),
@@ -44,10 +44,11 @@ const FormSignin = () => {
     }
   };
 
-  const signUpWithGoogle = async () => {
+  const signUpWithGoogle = () => {
     setIsLoadingGoogle(true);
     try {
-      await signIn('google');
+      signIn('google');
+      router.refresh();
     } catch (error) {
       console.log(error);
     } finally {
