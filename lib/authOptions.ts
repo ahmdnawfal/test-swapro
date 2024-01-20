@@ -2,6 +2,8 @@ import { AuthOptions } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import GoogleProvider from 'next-auth/providers/google';
 
+const env = process.env.NEXT_PUBLIC_API_URL;
+
 const authOptions: AuthOptions = {
   session: {
     strategy: 'jwt',
@@ -15,7 +17,7 @@ const authOptions: AuthOptions = {
         password: { label: 'Password', type: 'password' },
       },
       async authorize(credentials) {
-        const res = await fetch('http://localhost:3000/api/login', {
+        const res = await fetch(`${env}/api/login`, {
           method: 'POST',
           body: JSON.stringify(credentials),
           headers: { 'Content-Type': 'application/json' },

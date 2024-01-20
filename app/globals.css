@@ -89,17 +89,33 @@ body {
 }
 
 .bg-main {
-  background-image: url('/images/BgMain.png');
+  background-image: url('/images/BgMainFull.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
+.bg-main-blur {
+  background-image: url('/images/BgMain.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+
 .bg-category {
+  background-image: url('/images/BgCategoryFull.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.bg-main-blur {
   background-image: url('/images/BgCategory.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  min-height: 100vh;
 }
 
 .bg-auth-1 {
@@ -107,7 +123,7 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .bg-auth-2 {
@@ -115,7 +131,7 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .bg-auth-3 {
@@ -123,7 +139,7 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .bg-book-now {

@@ -12,8 +12,12 @@ type QueryParams = {
 };
 
 const getVilla = async (params: QueryParams) => {
-  const response = await GET('http://localhost:3000/api/villa', params);
-  return response;
+  const response = await GET('/api/villa', params);
+  if (response.message === 'SUCCESS') {
+    return response;
+  } else {
+    console.log(response.message);
+  }
 };
 
 const Page = async ({

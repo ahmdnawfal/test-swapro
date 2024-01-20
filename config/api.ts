@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+const env = process.env.NEXT_PUBLIC_API_URL;
+
 export const POST = async (path: string, data: any, token?: string) => {
   const header = {
     'Content-Type': 'application/json',
@@ -7,7 +9,7 @@ export const POST = async (path: string, data: any, token?: string) => {
   };
 
   try {
-    const response = await axios.post(path, data, {
+    const response = await axios.post(`${env}${path}`, data, {
       headers: header,
     });
 
@@ -23,7 +25,7 @@ export const GET = async (path: string, params?: Object, token?: string) => {
   };
 
   try {
-    const response = await axios.get(path, {
+    const response = await axios.get(`${env}${path}`, {
       headers: header,
       params,
     });

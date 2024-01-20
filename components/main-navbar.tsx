@@ -20,8 +20,12 @@ import { GET } from '@/config/api';
 import Logout from './logout';
 
 const getCategory = async () => {
-  const response = await GET('http://localhost:3000/api/category');
-  return response;
+  const response = await GET('/api/category');
+  if (response.message === 'SUCCESS') {
+    return response;
+  } else {
+    console.log(response.message);
+  }
 };
 
 const MainNavbar = async () => {
