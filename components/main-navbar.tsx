@@ -21,16 +21,16 @@ import Logout from './logout';
 
 const getCategory = async () => {
   const response = await GET('/api/category');
-  if (response.message === 'SUCCESS') {
-    return response;
-  } else {
-    console.log(response.message);
-  }
+  return response;
 };
 
 const MainNavbar = async () => {
   const session = await getServerSession(authOptions);
   const category = await getCategory();
+
+  if (category.message !== 'SUCCESS') {
+    return <p>Failed fetch data...</p>;
+  }
 
   return (
     <div className='fixed w-[100%] top-0 z-50 bg-gray-900/10'>

@@ -13,11 +13,7 @@ type QueryParams = {
 
 const getVilla = async (params: QueryParams) => {
   const response = await GET('/api/villa', params);
-  if (response.message === 'SUCCESS') {
-    return response;
-  } else {
-    console.log(response.message);
-  }
+  return response;
 };
 
 const Page = async ({
@@ -34,6 +30,10 @@ const Page = async ({
   };
 
   const villa = await getVilla(queryParams);
+
+  if (villa.message !== 'SUCCESS') {
+    return <p>Failed fetch data...</p>;
+  }
 
   return (
     <main>
