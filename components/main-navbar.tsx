@@ -21,11 +21,7 @@ import Logout from './logout';
 
 const getCategory = async () => {
   const response = await GET('http://localhost:3000/api/category');
-  if (response.message === 'SUCCESS') {
-    return response;
-  } else {
-    throw new Error(`Error: ${response.message}`);
-  }
+  return response;
 };
 
 const MainNavbar = async () => {
