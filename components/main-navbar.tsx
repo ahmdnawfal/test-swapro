@@ -121,16 +121,7 @@ const MainNavbar = async () => {
               <p className='text-l text-white'>contact us</p>
             </Link>
             {session?.user ? (
-              <DropdownMenu>
-                <DropdownMenuTrigger>
-                  <p className='text-l text-white font-bold'>
-                    Welcome {session.user.name}
-                  </p>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent>
-                  <Logout />
-                </DropdownMenuContent>
-              </DropdownMenu>
+              <Logout session={session} />
             ) : (
               <Link href={'/auth'}>
                 <Button
