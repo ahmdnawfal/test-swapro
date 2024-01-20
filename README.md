@@ -1,4 +1,4 @@
-## if Stackblitz not working please clone and install or acces in https://test-swapro.vercel.app
+## if Stackblitz not working please clone and install or access in https://test-swapro.vercel.app
 
 ## Getting Started
 
