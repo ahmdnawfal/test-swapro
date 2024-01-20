@@ -1,16 +1,16 @@
-## if Stackblitz not working please clone and install
+## if Stackblitz not working please clone and install or access in https://test-swapro.vercel.app
 
 ## Getting Started
 
-# Clone this repository
+## Clone this repository
 
 git clone https://github.com/ahmdnawfal/test-swapro.git
 
-# Install dependency
+## Install dependency
 
 npm install
 
-# run the development server:
+## run the development server:
 
 ```bash
 npm run dev
