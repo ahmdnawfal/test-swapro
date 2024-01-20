@@ -53,8 +53,7 @@ const FormSignUp = ({
   const signUpWithGoogle = async () => {
     setIsLoadingGoogle(true);
     try {
-      signIn('google');
-      router.refresh();
+      await signIn('google');
     } catch (error) {
       console.log(error);
     } finally {

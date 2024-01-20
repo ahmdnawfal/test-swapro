@@ -75,8 +75,20 @@
   }
 }
 
+html,
+body {
+  scroll-behavior: smooth;
+}
+
 .bg-main {
   background-image: url('/images/BgMain.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.bg-category {
+  background-image: url('/images/BgCategory.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

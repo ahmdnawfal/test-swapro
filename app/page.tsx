@@ -10,30 +10,30 @@ import MainNavbar from '@/components/main-navbar';
 
 export default async function Home() {
   return (
-    <main className='overflow-x-hidden'>
+    <main>
       <MainNavbar />
-      <section>
+      <section id='main'>
         <SectionMain />
       </section>
-      <section>
+      <section id='about'>
         <SectionAbout />
       </section>
-      <section>
+      <section id='villa'>
         <SectionVillaStudio />
       </section>
-      <section>
+      <section id='various'>
         <SectionVarious />
       </section>
-      <section>
+      <section id='customer'>
         <SectionCustomers />
       </section>
-      <section>
+      <section id='gallery'>
         <SectionGallery />
       </section>
-      <section>
+      <section id='book'>
         <SectionBookNow />
       </section>
-      <footer>
+      <footer id='contact'>
         <Footer />
       </footer>
     </main>

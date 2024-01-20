@@ -10,7 +10,7 @@ type PropsCardVillaStudio = {
   mainFacilities: string;
   bed: number;
   person: number;
-  price: string;
+  price: string | number;
   isHidden?: boolean;
 };
 
@@ -40,13 +40,13 @@ const CardVillaStudio = ({
         isHidden ? 'hidden md:block' : 'block'
       } duration-500 cursor-pointer shadow-lg border-none `}
     >
-      <CardHeader>
+      <CardHeader className='items-center'>
         <Image
           alt={title}
           src={image}
           width={320}
           height={322}
-          style={{ width: '100%' }}
+          className='w-[100%] md:w-[320px] md:h-[322px] md:object-cover '
         />
       </CardHeader>
       <CardContent>
@@ -114,7 +114,7 @@ const CardVillaStudio = ({
                 isActive ? 'text-white' : 'text-green'
               } text-m md:text-xl md:leading-7 font-medium duration-300`}
             >
-              {price}{' '}
+              {price.toLocaleString()}{' '}
               <span
                 className={`${
                   isActive ? 'text-white' : 'text-neutral-80'

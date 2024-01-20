@@ -36,7 +36,7 @@ const data = [
 
 const SectionVillaStudio = () => {
   return (
-    <div className='mb-[100px]'>
+    <div className='my-[100px]'>
       <div className='container space-y-6 md:space-y-[48px]'>
         <div className='flex md:justify-center text-h1 relative'>
           <Image
