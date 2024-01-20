@@ -110,7 +110,7 @@ body {
   background-repeat: no-repeat;
 }
 
-.bg-main-blur {
+.bg-category-blur {
   background-image: url('/images/BgCategory.png');
   background-size: cover;
   background-position: center;
