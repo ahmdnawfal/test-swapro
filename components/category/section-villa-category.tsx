@@ -5,9 +5,15 @@ import FilterSelect from '../filter-select';
 
 type propsSectionVillaCategory = {
   data: Villa[];
+  searchParams: {
+    sort: string;
+  };
 };
 
-const SectionVillaCategory = ({ data }: propsSectionVillaCategory) => {
+const SectionVillaCategory = ({
+  data,
+  searchParams,
+}: propsSectionVillaCategory) => {
   return (
     <div className='mb-[100px] flex min-h-screen items-center'>
       <div className='container space-y-6 md:space-y-[48px]'>
@@ -18,16 +24,17 @@ const SectionVillaCategory = ({ data }: propsSectionVillaCategory) => {
           <FilterSelect
             options={[
               {
-                label: 'Lowest',
                 value: 'asc',
+                label: 'Lowest',
               },
               {
-                label: 'Highest',
                 value: 'desc',
+                label: 'Highest',
               },
             ]}
             name='sort'
             placeholder='Sort by'
+            defaultValue={searchParams.sort}
           />
         </div>
         <div className='grid relative grid-cols-2 md:grid-cols-3 gap-[21px] md:gap-[26px] mb-2'>

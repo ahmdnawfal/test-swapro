@@ -10,7 +10,7 @@ import MainNavbar from '@/components/main-navbar';
 
 export default async function Home() {
   return (
-    <main>
+    <main className='overflow-x-hidden'>
       <MainNavbar />
       <section id='main'>
         <SectionMain />

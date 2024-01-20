@@ -20,10 +20,17 @@ const getVilla = async (params: QueryParams) => {
   }
 };
 
-const Page = async ({ params }: { params: { id: string } }) => {
+const Page = async ({
+  params,
+  searchParams,
+}: {
+  params: { id: string };
+  searchParams: { sort: string };
+}) => {
   const id = params.id;
   const queryParams = {
     categoryId: id,
+    sort: searchParams.sort,
   };
 
   const villa = await getVilla(queryParams);
@@ -35,7 +42,7 @@ const Page = async ({ params }: { params: { id: string } }) => {
         <SectionMainCategory />
       </section>
       <section id='villa'>
-        <SectionVillaCategory data={villa?.data} />
+        <SectionVillaCategory searchParams={searchParams} data={villa?.data} />
       </section>
       <section id='customer'>
         <SectionCustomers />

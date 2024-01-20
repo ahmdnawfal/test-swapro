@@ -40,7 +40,7 @@ const FilterSelect = ({
 
   return (
     <Select onValueChange={onSelect} defaultValue={defaultValue}>
-      <SelectTrigger className=' w-[236px] xl:w-[122px] xl:h-[42px]'>
+      <SelectTrigger className='w-[122px] h-[42px]'>
         <SelectValue placeholder={placeholder} />
       </SelectTrigger>
       <SelectContent>

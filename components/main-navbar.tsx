@@ -17,6 +17,7 @@ import {
 } from './ui/dropdown-menu';
 import { IoMdArrowDropdown } from 'react-icons/io';
 import { GET } from '@/config/api';
+import Logout from './logout';
 
 const getCategory = async () => {
   const response = await GET('http://localhost:3000/api/category');
@@ -120,9 +121,16 @@ const MainNavbar = async () => {
               <p className='text-l text-white'>contact us</p>
             </Link>
             {session?.user ? (
-              <p className='text-l text-white font-bold'>
-                Welcome {session.user.name}
-              </p>
+              <DropdownMenu>
+                <DropdownMenuTrigger>
+                  <p className='text-l text-white font-bold'>
+                    Welcome {session.user.name}
+                  </p>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent>
+                  <Logout />
+                </DropdownMenuContent>
+              </DropdownMenu>
             ) : (
               <Link href={'/auth'}>
                 <Button

@@ -10,7 +10,7 @@ const SectionVarious = () => {
           src={'/icons/CircleDots.svg'}
           width={104}
           height={118}
-          className='hidden md:block absolute left-[-2%] top-[-10%] z-[-10px]'
+          className='md:block absolute right-[-12%] top-[12%] md:left-[-2%] md:top-[-10%] z-[-10px]'
         />
         <div className='flex flex-col gap-6 relative'>
           <h1 className='text-neutral-90 text-xl leading-5 tracking-[-0.24px] text-center md:text-start md:text-h1 md:leading-[44px] md:tracking-[-0.92px] font-bold'>

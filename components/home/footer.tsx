@@ -40,7 +40,7 @@ const data = [
 
 const Footer = () => {
   return (
-    <div className='min-h-[389px] flex items-center'>
+    <div className='min-h-[389px] flex items-center bg-[#F3F6F6]'>
       <div className='container'>
         <div className='grid grid-cols-3 gap-4'>
           {data.map((value, index) => (

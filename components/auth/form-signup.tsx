@@ -14,15 +14,16 @@ import { Dispatch, SetStateAction, useState } from 'react';
 import { toast } from 'react-toastify';
 import FormNumber from '../form-number';
 import { signIn } from 'next-auth/react';
-import { useRouter } from 'next/navigation';
 
 const FormSignUp = ({
   setIsActive,
+  setModalVerif,
+  setEmail,
 }: {
   setIsActive: Dispatch<SetStateAction<string>>;
+  setEmail: Dispatch<SetStateAction<string>>;
+  setModalVerif: Dispatch<SetStateAction<boolean>>;
 }) => {
-  const router = useRouter();
-
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isLoadingGoogle, setIsLoadingGoogle] = useState<boolean>(false);
 
@@ -40,9 +41,10 @@ const FormSignUp = ({
     setIsLoading(true);
     const response = await POST('/api/register', values);
     if (response.message === 'SUCCESS') {
+      await setEmail(form.getValues('email'));
       form.reset();
-      toast.success('success');
       setIsLoading(false);
+      setModalVerif(true);
       setIsActive('signin');
     } else {
       setIsLoading(false);

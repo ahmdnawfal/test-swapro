@@ -129,7 +129,7 @@ const SectionCustomers = () => {
           src={'/icons/CircleDots.svg'}
           width={104}
           height={118}
-          className='hidden absolute bottom-0 md:inline-block'
+          className='absolute bottom-0 md:inline-block'
         />
         <Image
           alt='circle-dots'

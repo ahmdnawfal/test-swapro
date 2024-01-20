@@ -34,9 +34,36 @@ export default function Layout({ children }: { children: ReactNode }) {
           infinite
           autoPlay
         >
-          <div className='bg-auth-1'></div>
-          <div className='bg-auth-2'></div>
-          <div className='bg-auth-3'></div>
+          <div className='bg-auth-1'>
+            <div className='bg-gradient container w-[100%] min-h-screen flex items-end relative'>
+              <div className='absolute bottom-28'>
+                <h1 className='text-h1 text-white font-bold'>Villa Amadaha</h1>
+                <p className='text-white text-[18px]'>
+                  The great place for peace life
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className='bg-auth-2'>
+            <div className='bg-gradient container w-[100%] min-h-screen flex items-end relative'>
+              <div className='absolute bottom-28'>
+                <h1 className='text-h1 text-white font-bold'>Joglo House</h1>
+                <p className='text-white text-[18px]'>
+                  The great place for peace life
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className='bg-auth-3'>
+            <div className='bg-gradient container w-[100%] min-h-screen flex items-end relative'>
+              <div className='absolute bottom-28'>
+                <h1 className='text-h1 text-white font-bold'>Kudus house</h1>
+                <p className='text-white text-[18px]'>
+                  The great place for peace life
+                </p>
+              </div>
+            </div>
+          </div>
         </Carousel>
       </div>
       <div>{children}</div>
