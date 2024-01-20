@@ -2,15 +2,15 @@
 
 ## Getting Started
 
-# Clone this repository
+## Clone this repository
 
 git clone https://github.com/ahmdnawfal/test-swapro.git
 
-# Install dependency
+## Install dependency
 
 npm install
 
-# run the development server:
+## run the development server:
 
 ```bash
 npm run dev
